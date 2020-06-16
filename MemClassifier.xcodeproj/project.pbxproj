@@ -14,6 +14,8 @@
 		A97D01F52497EABC00541A7F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97D01F32497EABC00541A7F /* LaunchScreen.storyboard */; };
 		A97D01FD2497EACC00541A7F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A97D01FC2497EACC00541A7F /* Main.storyboard */; };
 		A97D01FF2497EB8000541A7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01FE2497EB8000541A7F /* MainViewController.swift */; };
+		A97D02012498F60800541A7F /* Resnet50FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */; };
+		A97D02032498F70700541A7F /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D02022498F70700541A7F /* ImageProcessor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		A97D01F62497EABC00541A7F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A97D01FC2497EACC00541A7F /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A97D01FE2497EB8000541A7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
+		A97D02022498F70700541A7F /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,9 +67,11 @@
 				A97D01EC2497EABA00541A7F /* ViewController.swift */,
 				A97D01FC2497EACC00541A7F /* Main.storyboard */,
 				A97D01FE2497EB8000541A7F /* MainViewController.swift */,
+				A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */,
 				A97D01F12497EABC00541A7F /* Assets.xcassets */,
 				A97D01F32497EABC00541A7F /* LaunchScreen.storyboard */,
 				A97D01F62497EABC00541A7F /* Info.plist */,
+				A97D02022498F70700541A7F /* ImageProcessor.swift */,
 			);
 			path = MemClassifier;
 			sourceTree = "<group>";
@@ -143,7 +149,9 @@
 			files = (
 				A97D01ED2497EABA00541A7F /* ViewController.swift in Sources */,
 				A97D01E92497EABA00541A7F /* AppDelegate.swift in Sources */,
+				A97D02012498F60800541A7F /* Resnet50FP16.mlmodel in Sources */,
 				A97D01EB2497EABA00541A7F /* SceneDelegate.swift in Sources */,
+				A97D02032498F70700541A7F /* ImageProcessor.swift in Sources */,
 				A97D01FF2497EB8000541A7F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
