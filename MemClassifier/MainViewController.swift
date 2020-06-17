@@ -10,14 +10,32 @@ import UIKit
 import Vision
 import CoreML
 import ImageIO
+import ImagePicker
 
 
-class MainViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+class MainViewController: UIViewController, ImagePickerDelegate {
+    let imagePickerController = ImagePickerController()
+
+    func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        return
+    }
     
-    let imagePicker = UIImagePickerController()
+    func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
+        self.imageView.image = images[0]
+        updateClassifications(for: images[0])
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
+        imagePicker.dismiss(animated: true, completion: nil)
+    }
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
+
+    
     let model = Resnet50FP16()
     @IBOutlet weak var predictionLabel: UILabel!
-    @IBOutlet weak var imageView: UIImageView!
     
     
     lazy var classificationRequest: VNCoreMLRequest = {
@@ -87,10 +105,8 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
     }
     
-    @IBAction func chooseImagesButtonClicked(_ sender: Any) {
-       imagePicker.allowsEditing = false
-       imagePicker.sourceType = .photoLibrary
-        present(imagePicker, animated: true, completion: nil)
+    @IBAction func chooseImagesButtonClicked(_ sender: UIButton) {
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     func sceneLabel (forImage image: UIImage) -> String? {
@@ -105,7 +121,8 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        imagePicker.delegate = self
+        imagePickerController.delegate = self
+        imagePickerController.imageLimit = 5
 
         // Do any additional setup after loading the view.
     }
@@ -131,3 +148,4 @@ class MainViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     */
 
 }
+

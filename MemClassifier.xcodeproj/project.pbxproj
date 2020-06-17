@@ -3,10 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A976B8D3249A5A7C005E8A00 /* ScanResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976B8D2249A5A7C005E8A00 /* ScanResultsViewController.swift */; };
 		A97D01E92497EABA00541A7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01E82497EABA00541A7F /* AppDelegate.swift */; };
 		A97D01EB2497EABA00541A7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01EA2497EABA00541A7F /* SceneDelegate.swift */; };
 		A97D01ED2497EABA00541A7F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01EC2497EABA00541A7F /* ViewController.swift */; };
@@ -16,9 +17,15 @@
 		A97D01FF2497EB8000541A7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01FE2497EB8000541A7F /* MainViewController.swift */; };
 		A97D02012498F60800541A7F /* Resnet50FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */; };
 		A97D02032498F70700541A7F /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D02022498F70700541A7F /* ImageProcessor.swift */; };
+		A9CE7717249A494300C534D5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A9CE7716249A494300C534D5 /* Podfile */; };
+		E11A8907AA5B3FED725EA011 /* Pods_MemClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B9A1598FE925092A47C716 /* Pods_MemClassifier.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22FCCADB0C4816D75FBB6E88 /* Pods-MemClassifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemClassifier.debug.xcconfig"; path = "Target Support Files/Pods-MemClassifier/Pods-MemClassifier.debug.xcconfig"; sourceTree = "<group>"; };
+		7B79C0041DD4F4A05FB70215 /* Pods-MemClassifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemClassifier.release.xcconfig"; path = "Target Support Files/Pods-MemClassifier/Pods-MemClassifier.release.xcconfig"; sourceTree = "<group>"; };
+		89B9A1598FE925092A47C716 /* Pods_MemClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A976B8D2249A5A7C005E8A00 /* ScanResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultsViewController.swift; sourceTree = "<group>"; };
 		A97D01E52497EABA00541A7F /* MemClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97D01E82497EABA00541A7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A97D01EA2497EABA00541A7F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,6 +37,7 @@
 		A97D01FE2497EB8000541A7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
 		A97D02022498F70700541A7F /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		A9CE7716249A494300C534D5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E11A8907AA5B3FED725EA011 /* Pods_MemClassifier.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +57,8 @@
 			children = (
 				A97D01E72497EABA00541A7F /* MemClassifier */,
 				A97D01E62497EABA00541A7F /* Products */,
+				B1491A379193031E68993150 /* Pods */,
+				BB8F0372C4A2B23553447D1E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,15 +76,34 @@
 				A97D01E82497EABA00541A7F /* AppDelegate.swift */,
 				A97D01EA2497EABA00541A7F /* SceneDelegate.swift */,
 				A97D01EC2497EABA00541A7F /* ViewController.swift */,
+				A976B8D2249A5A7C005E8A00 /* ScanResultsViewController.swift */,
 				A97D01FC2497EACC00541A7F /* Main.storyboard */,
 				A97D01FE2497EB8000541A7F /* MainViewController.swift */,
 				A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */,
 				A97D01F12497EABC00541A7F /* Assets.xcassets */,
+				A9CE7716249A494300C534D5 /* Podfile */,
 				A97D01F32497EABC00541A7F /* LaunchScreen.storyboard */,
 				A97D01F62497EABC00541A7F /* Info.plist */,
 				A97D02022498F70700541A7F /* ImageProcessor.swift */,
 			);
 			path = MemClassifier;
+			sourceTree = "<group>";
+		};
+		B1491A379193031E68993150 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				22FCCADB0C4816D75FBB6E88 /* Pods-MemClassifier.debug.xcconfig */,
+				7B79C0041DD4F4A05FB70215 /* Pods-MemClassifier.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		BB8F0372C4A2B23553447D1E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89B9A1598FE925092A47C716 /* Pods_MemClassifier.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,9 +113,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A97D01F92497EABC00541A7F /* Build configuration list for PBXNativeTarget "MemClassifier" */;
 			buildPhases = (
+				2333D33831D61E19986372AA /* [CP] Check Pods Manifest.lock */,
 				A97D01E12497EABA00541A7F /* Sources */,
 				A97D01E22497EABA00541A7F /* Frameworks */,
 				A97D01E32497EABA00541A7F /* Resources */,
+				97A506CC99D3DD663096962F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,11 +168,54 @@
 			files = (
 				A97D01F52497EABC00541A7F /* LaunchScreen.storyboard in Resources */,
 				A97D01F22497EABC00541A7F /* Assets.xcassets in Resources */,
+				A9CE7717249A494300C534D5 /* Podfile in Resources */,
 				A97D01FD2497EACC00541A7F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2333D33831D61E19986372AA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MemClassifier-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		97A506CC99D3DD663096962F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemClassifier/Pods-MemClassifier-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MemClassifier/Pods-MemClassifier-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MemClassifier/Pods-MemClassifier-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		A97D01E12497EABA00541A7F /* Sources */ = {
@@ -152,6 +227,7 @@
 				A97D02012498F60800541A7F /* Resnet50FP16.mlmodel in Sources */,
 				A97D01EB2497EABA00541A7F /* SceneDelegate.swift in Sources */,
 				A97D02032498F70700541A7F /* ImageProcessor.swift in Sources */,
+				A976B8D3249A5A7C005E8A00 /* ScanResultsViewController.swift in Sources */,
 				A97D01FF2497EB8000541A7F /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,10 +362,12 @@
 		};
 		A97D01FA2497EABC00541A7F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 22FCCADB0C4816D75FBB6E88 /* Pods-MemClassifier.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4EVHA4CF95;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MemClassifier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -304,10 +382,12 @@
 		};
 		A97D01FB2497EABC00541A7F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7B79C0041DD4F4A05FB70215 /* Pods-MemClassifier.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4EVHA4CF95;
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MemClassifier/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

@@ -1,0 +1,6 @@
+framework module Pods_MemClassifier {
+  umbrella header "Pods-MemClassifier-umbrella.h"
+
+  export *
+  module * { export * }
+}
