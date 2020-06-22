@@ -14,14 +14,13 @@ import CoreML
 class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     @IBOutlet weak var testImageView: UIImageView!
     var images = [UIImage]()
-    var thumbnails = [UIImage]()
-    
     var savedFoods = [FoodModel]()
 
     var doneClassifying = false
     let MAX_PHOTOS_SCANNED = 10
     var predictions = [String]()
 
+    @IBOutlet weak var numPhotosLabel: UILabel!
     @IBOutlet weak var leftButton: UIButton!
     @IBOutlet weak var rightButton: UIButton!
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -31,7 +30,8 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
     func newPicShown(){
         if(savedFoods.count > 0){
             imageView.image = savedFoods[currImageIndex].image
-            resultLabel.text = "click classify"
+            resultLabel.text = savedFoods[currImageIndex].prediction +
+                " (" + savedFoods[currImageIndex].confidence + " percent)"
         }
     }
     
@@ -59,7 +59,7 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
     @IBOutlet weak var resultLabel: UILabel!
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIndentifier, for: indexPath) as! ResultCollectionViewCell
-        cell.image.image = thumbnails[indexPath.row]
+            cell.image.image = images[indexPath.row]
         if doneClassifying{
             cell.label.text = predictions[indexPath.row]
         }
@@ -79,10 +79,11 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
         super.viewDidLoad()
         rightButton.isHidden = true
         leftButton.isHidden = true
-        print(predictions.count)
+        numPhotosLabel.text = String(savedFoods.count) + " Photos"
         if(savedFoods.count > 0){
             imageView.image = savedFoods[currImageIndex].image
-            resultLabel.text = savedFoods[currImageIndex].confidence + " " + savedFoods[currImageIndex].prediction
+            resultLabel.text = savedFoods[currImageIndex].prediction +
+            " (" + savedFoods[currImageIndex].confidence + " percent)"
         }
         if(savedFoods.count > 1){
             rightButton.isHidden = false
@@ -145,7 +146,6 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
                 }
                 let asset = results.object(at: i)
                 images.append(convertImageFromAsset(asset: asset))
-                thumbnails.append(asset.image)
             }
         } else {
             print("no photos to display")
@@ -158,7 +158,7 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
         let option = PHImageRequestOptions()
         var image = UIImage()
         option.isSynchronous = true
-        manager.requestImage(for: asset, targetSize: CGSize(width: 299, height: 299), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
+        manager.requestImage(for: asset, targetSize: CGSize(width: 500, height: 500), contentMode: .aspectFit, options: option, resultHandler: {(result, info)->Void in
             image = result!
         })
         return image
@@ -175,7 +175,7 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
             let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
                 self?.processClassifications(for: request, error: error)
             })
-            request.imageCropAndScaleOption = .centerCrop
+            request.imageCropAndScaleOption = .scaleFill
             return request
         } catch {
             fatalError("Failed to load Vision ML model: \(error)")
@@ -235,15 +235,15 @@ class ScanResultsViewController: UIViewController, UICollectionViewDelegate, UIC
     
 
 }
-extension PHAsset {
-
-    var image : UIImage {
-        var thumbnail = UIImage()
-        let imageManager = PHCachingImageManager()
-        imageManager.requestImage(for: self, targetSize: CGSize(width: 299, height: 299), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
-            thumbnail = image!
-        })
-        return thumbnail
-    }
-}
+//extension PHAsset {
+//
+//    var image : UIImage {
+//        var thumbnail = UIImage()
+//        let imageManager = PHCachingImageManager()
+//        imageManager.requestImage(for: self, targetSize: CGSize(width: 400, height: 400), contentMode: .aspectFit, options: nil, resultHandler: { image, _ in
+//            thumbnail = image!
+//        })
+//        return thumbnail
+//    }
+//}
 

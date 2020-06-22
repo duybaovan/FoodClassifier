@@ -36,9 +36,10 @@ class MainViewController: UIViewController, ImagePickerDelegate {
     
     @IBAction func saveFoodsDidPress(_ sender: Any) {
         if(images.count == 0) {return}
-        let prediction = predictionLabel.text?.split(separator: " ")
-        let confidence = prediction![0]
-        let label = prediction![prediction!.count - 1]
+        let firstline = predictionLabel.text?.split(separator: "\n")[0]
+        let prediction = firstline!.split(separator: " ")
+        let confidence = prediction[0]
+        let label = prediction[prediction.count - 1]
         savedFoods.append(FoodModel(forImage: imageView.image!, withPrediction: String(label), withConfidence: String(confidence)))
         print(savedFoods)
     }
@@ -71,7 +72,6 @@ class MainViewController: UIViewController, ImagePickerDelegate {
         if(segue.identifier == "food_gallery"){
             if let destinationVC = segue.destination as? ScanResultsViewController {
                 destinationVC.savedFoods = savedFoods
-                print(savedFoods)
             }
         }
     }
@@ -108,7 +108,7 @@ class MainViewController: UIViewController, ImagePickerDelegate {
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
-    
+    var model = Food101()
     
     
     lazy var classificationRequest: VNCoreMLRequest = {

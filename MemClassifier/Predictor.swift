@@ -11,6 +11,4 @@ import UIKit
 import CoreML
 import Vision
 
-let model = Resnet50FP16()
-
 
