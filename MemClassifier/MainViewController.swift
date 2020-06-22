@@ -15,27 +15,100 @@ import ImagePicker
 
 class MainViewController: UIViewController, ImagePickerDelegate {
     let imagePickerController = ImagePickerController()
+    var images = [UIImage]()
+    var imageLabels: [String] = ["tacos","pho","salad","poke"]
+    var savedFoods: [FoodModel] = [FoodModel]()
+    var currImageIndex = 0
+    var currPrediction = ""
+    var currConfidence = 0
+    let MAX_SELECTION_ALLOWED = 5
+    
+    @IBOutlet weak var saveThisFoodButton: UIButton!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var predictionLabel: UILabel!
+    @IBAction func classifyDidPress(_ sender: Any) {
+        updateClassifications(for: self.imageView.image!)
+        saveThisFoodButton.isHidden = false
+    }
+    @IBAction func chooseImagesButtonClicked(_ sender: UIButton) {
+        present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    @IBAction func saveFoodsDidPress(_ sender: Any) {
+        if(images.count == 0) {return}
+        let prediction = predictionLabel.text?.split(separator: " ")
+        let confidence = prediction![0]
+        let label = prediction![prediction!.count - 1]
+        savedFoods.append(FoodModel(forImage: imageView.image!, withPrediction: String(label), withConfidence: String(confidence)))
+        print(savedFoods)
+    }
+    
+    func newPicShown(){
+        imageView.image = images[currImageIndex]
+        updateClassifications(for: self.imageView.image!)
+    }
+    
+    @IBAction func leftDidPress(_ sender: Any) {
+        if(currImageIndex == 0){
+            currImageIndex = images.count - 1
+        }
+        else{
+            currImageIndex = currImageIndex - 1
+        }
+        newPicShown()
+    }
+    @IBAction func rightDidPress(_ sender: Any) {
+        if(currImageIndex == images.count - 1){
+            currImageIndex = 0
+        }
+        else{
+            currImageIndex = currImageIndex + 1
+        }
+        newPicShown()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "food_gallery"){
+            if let destinationVC = segue.destination as? ScanResultsViewController {
+                destinationVC.savedFoods = savedFoods
+                print(savedFoods)
+            }
+        }
+    }
+    
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        for label in imageLabels{
+            images.append(UIImage(named: label)!)
+        }
+        imageView.layer.borderWidth = 1
+        imageView.image = images[currImageIndex]
+        imagePickerController.delegate = self
+        saveThisFoodButton.isHidden = true
+        imagePickerController.imageLimit = MAX_SELECTION_ALLOWED
 
+        // Do any additional setup after loading the view.
+    }
     func wrapperDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         return
     }
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
-        self.imageView.image = images[0]
-        updateClassifications(for: images[0])
+        self.images = images
+        currImageIndex = 0
+        imageView.image = images[currImageIndex]
+        predictionLabel.text = "click classify"
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+   
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
     
-    @IBOutlet weak var imageView: UIImageView!
-
-    
-    let model = Resnet50FP16()
-    @IBOutlet weak var predictionLabel: UILabel!
     
     
     lazy var classificationRequest: VNCoreMLRequest = {
@@ -45,7 +118,7 @@ class MainViewController: UIViewController, ImagePickerDelegate {
              To use a different Core ML classifier model, add it to the project
              and replace `MobileNet` with that model's generated Swift class.
              */
-            let model = try VNCoreMLModel(for: Resnet50FP16().model)
+            let model = try VNCoreMLModel(for: Food101().model)
             
             let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
                 self?.processClassifications(for: request, error: error)
@@ -98,16 +171,15 @@ class MainViewController: UIViewController, ImagePickerDelegate {
                 let descriptions = topClassifications.map { classification in
                     
                     // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
-                   return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
+                    return String(format: "%.2f percent confident it's %@", classification.confidence*100, classification.identifier)
                 }
-                self.predictionLabel.text = "Classification:" + descriptions.joined(separator: "\n")
+                
+                self.predictionLabel.text = descriptions.joined(separator: "\n")
             }
         }
     }
     
-    @IBAction func chooseImagesButtonClicked(_ sender: UIButton) {
-        present(imagePickerController, animated: true, completion: nil)
-    }
+    
     
     func sceneLabel (forImage image: UIImage) -> String? {
         if let pixelBuffer = ImageProcessor.pixelBuffer(forImage: image.cgImage!){
@@ -119,13 +191,6 @@ class MainViewController: UIViewController, ImagePickerDelegate {
         return nil
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        imagePickerController.delegate = self
-        imagePickerController.imageLimit = 5
-
-        // Do any additional setup after loading the view.
-    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
@@ -135,17 +200,6 @@ class MainViewController: UIViewController, ImagePickerDelegate {
         updateClassifications(for: imageView.image!)
         dismiss(animated: true, completion: nil)
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 

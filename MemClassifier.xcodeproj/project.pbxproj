@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A95829A724A0947D00FC8C31 /* Food101.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A95829A624A0947C00FC8C31 /* Food101.mlmodel */; };
+		A95829A924A0A2EE00FC8C31 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95829A824A0A2EE00FC8C31 /* FoodModel.swift */; };
 		A976B8D3249A5A7C005E8A00 /* ScanResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A976B8D2249A5A7C005E8A00 /* ScanResultsViewController.swift */; };
 		A97D01E92497EABA00541A7F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01E82497EABA00541A7F /* AppDelegate.swift */; };
 		A97D01EB2497EABA00541A7F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01EA2497EABA00541A7F /* SceneDelegate.swift */; };
@@ -17,6 +19,9 @@
 		A97D01FF2497EB8000541A7F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D01FE2497EB8000541A7F /* MainViewController.swift */; };
 		A97D02012498F60800541A7F /* Resnet50FP16.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */; };
 		A97D02032498F70700541A7F /* ImageProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A97D02022498F70700541A7F /* ImageProcessor.swift */; };
+		A9C5BCD6249DFF3F005C0CE5 /* ResultCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5BCD4249DFF3F005C0CE5 /* ResultCollectionViewCell.swift */; };
+		A9C5BCD7249DFF3F005C0CE5 /* ResultCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9C5BCD5249DFF3F005C0CE5 /* ResultCollectionViewCell.xib */; };
+		A9C5BCD9249E4F0D005C0CE5 /* Predictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C5BCD8249E4F0D005C0CE5 /* Predictor.swift */; };
 		A9CE7717249A494300C534D5 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = A9CE7716249A494300C534D5 /* Podfile */; };
 		E11A8907AA5B3FED725EA011 /* Pods_MemClassifier.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89B9A1598FE925092A47C716 /* Pods_MemClassifier.framework */; };
 /* End PBXBuildFile section */
@@ -25,6 +30,8 @@
 		22FCCADB0C4816D75FBB6E88 /* Pods-MemClassifier.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemClassifier.debug.xcconfig"; path = "Target Support Files/Pods-MemClassifier/Pods-MemClassifier.debug.xcconfig"; sourceTree = "<group>"; };
 		7B79C0041DD4F4A05FB70215 /* Pods-MemClassifier.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MemClassifier.release.xcconfig"; path = "Target Support Files/Pods-MemClassifier/Pods-MemClassifier.release.xcconfig"; sourceTree = "<group>"; };
 		89B9A1598FE925092A47C716 /* Pods_MemClassifier.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MemClassifier.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A95829A624A0947C00FC8C31 /* Food101.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Food101.mlmodel; sourceTree = "<group>"; };
+		A95829A824A0A2EE00FC8C31 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
 		A976B8D2249A5A7C005E8A00 /* ScanResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanResultsViewController.swift; sourceTree = "<group>"; };
 		A97D01E52497EABA00541A7F /* MemClassifier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MemClassifier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A97D01E82497EABA00541A7F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +44,9 @@
 		A97D01FE2497EB8000541A7F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50FP16.mlmodel; sourceTree = "<group>"; };
 		A97D02022498F70700541A7F /* ImageProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProcessor.swift; sourceTree = "<group>"; };
+		A9C5BCD4249DFF3F005C0CE5 /* ResultCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCollectionViewCell.swift; sourceTree = "<group>"; };
+		A9C5BCD5249DFF3F005C0CE5 /* ResultCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCollectionViewCell.xib; sourceTree = "<group>"; };
+		A9C5BCD8249E4F0D005C0CE5 /* Predictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Predictor.swift; sourceTree = "<group>"; };
 		A9CE7716249A494300C534D5 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,8 +88,13 @@
 				A97D01EC2497EABA00541A7F /* ViewController.swift */,
 				A976B8D2249A5A7C005E8A00 /* ScanResultsViewController.swift */,
 				A97D01FC2497EACC00541A7F /* Main.storyboard */,
+				A9C5BCD4249DFF3F005C0CE5 /* ResultCollectionViewCell.swift */,
+				A9C5BCD5249DFF3F005C0CE5 /* ResultCollectionViewCell.xib */,
+				A95829A824A0A2EE00FC8C31 /* FoodModel.swift */,
 				A97D01FE2497EB8000541A7F /* MainViewController.swift */,
+				A9C5BCD8249E4F0D005C0CE5 /* Predictor.swift */,
 				A97D02002498F60800541A7F /* Resnet50FP16.mlmodel */,
+				A95829A624A0947C00FC8C31 /* Food101.mlmodel */,
 				A97D01F12497EABC00541A7F /* Assets.xcassets */,
 				A9CE7716249A494300C534D5 /* Podfile */,
 				A97D01F32497EABC00541A7F /* LaunchScreen.storyboard */,
@@ -168,6 +183,7 @@
 			files = (
 				A97D01F52497EABC00541A7F /* LaunchScreen.storyboard in Resources */,
 				A97D01F22497EABC00541A7F /* Assets.xcassets in Resources */,
+				A9C5BCD7249DFF3F005C0CE5 /* ResultCollectionViewCell.xib in Resources */,
 				A9CE7717249A494300C534D5 /* Podfile in Resources */,
 				A97D01FD2497EACC00541A7F /* Main.storyboard in Resources */,
 			);
@@ -223,12 +239,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				A97D01ED2497EABA00541A7F /* ViewController.swift in Sources */,
+				A9C5BCD6249DFF3F005C0CE5 /* ResultCollectionViewCell.swift in Sources */,
+				A95829A924A0A2EE00FC8C31 /* FoodModel.swift in Sources */,
 				A97D01E92497EABA00541A7F /* AppDelegate.swift in Sources */,
 				A97D02012498F60800541A7F /* Resnet50FP16.mlmodel in Sources */,
+				A9C5BCD9249E4F0D005C0CE5 /* Predictor.swift in Sources */,
 				A97D01EB2497EABA00541A7F /* SceneDelegate.swift in Sources */,
 				A97D02032498F70700541A7F /* ImageProcessor.swift in Sources */,
 				A976B8D3249A5A7C005E8A00 /* ScanResultsViewController.swift in Sources */,
 				A97D01FF2497EB8000541A7F /* MainViewController.swift in Sources */,
+				A95829A724A0947D00FC8C31 /* Food101.mlmodel in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +316,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -350,7 +370,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

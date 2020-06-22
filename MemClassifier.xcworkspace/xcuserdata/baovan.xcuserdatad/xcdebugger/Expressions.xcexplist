@@ -10,5 +10,24 @@
             </PersistentString>
          </PersistentStrings>
       </ContextState>
+      <ContextState
+         contextName = "closure #1 in ScanResultsViewController.processClassifications(for:error:):ScanResultsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "images">
+            </PersistentString>
+            <PersistentString
+               value = "predictions">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "ScanResultsViewController.collectionView(_:cellForItemAt:):ScanResultsViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "predictions">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
    </ContextStates>
 </VariablesViewState>
